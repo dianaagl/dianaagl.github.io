@@ -1,0 +1,732 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <title>Кодировка</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+  
+   <link rel="stylesheet" href="materialize/css/materialize.css">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
+<script src="jquery.js"></script>
+<script src="materialize/js/materialize.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+ </head>
+ <body> 
+<div class="menu">
+<div class="menu_item">
+<img class="logo" src="emblema_mai.png">
+</div>
+<div class="menu_item">Гиперболическое
+
+</div>
+<div class="menu_item">
+Эллиптическое
+</div>
+<div class="menu_item">
+Параболическое
+
+</div>
+
+</div>
+<div class="top_block giperb">
+ <div class="graf">
+  <canvas class="giperb_graph"></canvas>
+  <canvas class="giperb_graph2"></canvas>
+ </div>
+<div class="conditions">
+ <form action="#">
+<h3> Гиперболическое</h3>
+
+ <div class="block">
+  <h5>Схема решения</h5>
+  <div>
+  <input type="checkbox" class="filled-in" id="indeterminate-checkbox" />
+  <label for="indeterminate-checkbox">Явная схема</label>
+  </div>
+  <div>
+  <input type="checkbox" class="filled-in" id="indeterminate-checkbox2" />
+  <label for="indeterminate-checkbox2">Неявная схема</label>
+  </div>
+  <div>
+  <input type="checkbox" class="filled-in" id="indeterminate-checkbox3" />
+  <label for="indeterminate-checkbox3">Схема Кранка-Николсона</label>
+  </div>
+ </div>
+ <div class="block">
+  <h5>Начальное условие</h5>
+  <div class="name">&#936;(x) = </div>
+  <input type="text" class="my_input">
+ </div>
+ <div class="block">
+  <h5>Граничные условия</h5>
+  <div class="name">&#945;</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+  <div class="name">&#945;</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="quant[2]" class="form-control input-number" value="0.0" min="0.0" max="100.0">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[2]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+ </div>
+
+
+
+ <div class="block">
+  <h5>Аппроксимация граничных условий</h5>
+  <div>
+   <input type="checkbox" class="filled-in" id="gr_cond1" />
+   <label for="gr_cond1">Indeterminate Style</label>
+  </div>
+ <div>
+  <input type="checkbox" class="filled-in" id="gr_cond2" />
+  <label for="gr_cond2">Indeterminate Style</label>
+ </div>
+ </div>
+ <div class="block">
+  <h5>Параметры уравнения</h5>
+  <div class="name">&#945;</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param1">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="param1" class="form-control input-number" value="1" min="1" max="10">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param1">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+  <div class="name">&#946;</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param2">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="param2" class="form-control input-number" value="1" min="1" max="10">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param2">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+  <div class="name">&#947;</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param3">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="param3" class="form-control input-number" value="1" min="1" max="10">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param3">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+ </div>
+ <div class="block">
+  <h5>Параметры сетки</h5>
+
+
+  <div class="name">Шаги по t</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param_s1">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="param_s1" class="form-control input-number" value="1" min="1" max="10">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param_s1">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+
+  <div class="name">Шаги по x</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param_s2">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="param_s2" class="form-control input-number" value="1" min="1" max="10">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param_s2">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+</div>
+
+
+  <div class="name">max x</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param_s3">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="param_s3" class="form-control input-number" value="1" min="1" max="10">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param_s3">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+  <div class="name">max t</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param_s4">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="param_s4" class="form-control input-number" value="1" min="1" max="10">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param_s4">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+
+  <div class="name">min x</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param_s5">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="param_s5" class="form-control input-number" value="1" min="1" max="10">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param_s5">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+  <div class="name">min t</div>
+  <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param_s6">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+   <input type="text" name="param_s6" class="form-control input-number" value="1" min="1" max="10">
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param_s6">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+  </div>
+ </div>
+ <a class="waves-effect waves-light btn  light-blue">Решить</a>
+
+ </form>
+</div>
+</div>
+<div class="left_block parab">
+ <div class="graf">
+  <canvas class="giperb_graph"></canvas>
+  <canvas class="giperb_graph2"></canvas>
+ </div>
+ <div class="conditions">
+  <form action="#">
+   <h3> Параболическое</h3>
+
+   <div class="block">
+    <h5>Схема решения</h5>
+    <div>
+     <input type="checkbox" class="filled-in" id="indeterminate-checkbox_par" />
+     <label for="indeterminate-checkbox_par">Явная схема</label>
+    </div>
+    <div>
+     <input type="checkbox" class="filled-in" id="indeterminate-checkbox2_par" />
+     <label for="indeterminate-checkbox2_par">Неявная схема</label>
+    </div>
+    <div>
+     <input type="checkbox" class="filled-in" id="indeterminate-checkbox3_par" />
+     <label for="indeterminate-checkbox3_par">Схема Кранка-Николсона</label>
+    </div>
+   </div>
+   <div class="block">
+    <h5>Начальное условие</h5>
+    <div class="name">&#936;(x) = </div>
+    <input type="text" class="my_input">
+   </div>
+   <div class="block">
+    <h5>Граничные условия</h5>
+    <div class="name">&#945;</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+    <div class="name">&#945;</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="quant[2]" class="form-control input-number" value="0.0" min="0.0" max="100.0">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[2]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+   </div>
+
+
+
+   <div class="block">
+    <h5>Аппроксимация граничных условий</h5>
+    <div>
+     <input type="checkbox" class="filled-in" id="par_gr_cond1" />
+     <label for="par_gr_cond1">Indeterminate Style</label>
+    </div>
+    <div>
+     <input type="checkbox" class="filled-in" id="par_gr_cond2" />
+     <label for="par_gr_cond2">Indeterminate Style</label>
+    </div>
+   </div>
+   <div class="block">
+    <h5>Параметры уравнения</h5>
+    <div class="name">&#945;</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="par_param1">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="par_param1" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="par_param1">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+    <div class="name">&#946;</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="par_param2">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="par_param2" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="par_param2">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+    <div class="name">&#947;</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="par_param3">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="par_param3" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="par_param3">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+   </div>
+   <div class="block">
+    <h5>Параметры сетки</h5>
+
+
+    <div class="name">Шаги по t</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="par_param_s1">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="par_param_s1" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="par_param_s1">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+
+    <div class="name">Шаги по x</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="par_param_s2">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="par_param_s2" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="par_param_s2">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+
+
+    <div class="name">max x</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="par_param_s3">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="par_param_s3" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="par_param_s3">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+    <div class="name">max t</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="par_param_s4">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="par_param_s4" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="par_param_s4">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+
+    <div class="name">min x</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="par_param_s5">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="par_param_s5" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="par_param_s5">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+    <div class="name">min t</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="par_param_s6">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="par_param_s6" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="par_param_s6">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+   </div>
+   <a class="waves-effect waves-light btn  light-blue">Решить</a>
+
+  </form>
+ </div>
+</div>
+
+
+<div class="ellipt right_block">
+ <div class="graf">
+  <canvas class="giperb_graph"></canvas>
+  <canvas class="giperb_graph2"></canvas>
+ </div>
+ <div class="conditions">
+  <form action="#">
+   <h3> Эллиптическое</h3>
+
+   <div class="block">
+    <h5>Схема решения</h5>
+    <div>
+     <input type="checkbox" class="filled-in" id="ell_yavn" />
+     <label for="ell_yavn">Явная схема</label>
+    </div>
+    <div>
+     <input type="checkbox" class="filled-in" id="ell_neyavn" />
+     <label for="ell_neyavn">Неявная схема</label>
+    </div>
+    <div>
+     <input type="checkbox" class="filled-in" id="ell_krank" />
+     <label for="ell_krank">Схема Кранка-Николсона</label>
+    </div>
+   </div>
+   <div class="block">
+    <h5>Начальное условие</h5>
+    <div class="name">&#936;(x) = </div>
+    <input type="text" class="my_input">
+   </div>
+   <div class="block">
+    <h5>Граничные условия</h5>
+    <div class="name">&#945;</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="ell_gr_1">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="ell_gr_1" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="ell_gr_1">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+    <div class="name">&#945;</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="quant[2]" class="form-control input-number" value="0.0" min="0.0" max="100.0">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[2]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+   </div>
+
+
+
+   <div class="block">
+    <h5>Аппроксимация граничных условий</h5>
+    <div>
+     <input type="checkbox" class="filled-in" id="ell_gr_cond1" />
+     <label for="ell_gr_cond1">Indeterminate Style</label>
+    </div>
+    <div>
+     <input type="checkbox" class="filled-in" id="ell_gr_cond2" />
+     <label for="ell_gr_cond2">Indeterminate Style</label>
+    </div>
+   </div>
+   <div class="block">
+    <h5>Параметры уравнения</h5>
+    <div class="name">&#945;</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param1">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="param1" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param1">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+    <div class="name">&#946;</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param2">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="param2" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param2">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+    <div class="name">&#947;</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="param3">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="param3" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="param3">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+   </div>
+   <div class="block">
+    <h5>Параметры сетки</h5>
+
+
+    <div class="name">Шаги по t</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="ell_param_s1">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="ell_param_s1" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="ell_param_s1">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+
+    <div class="name">Шаги по x</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="ell_param_s2">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="ell_param_s2" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="ell_param_s2">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+
+
+    <div class="name">max x</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="ell_param_s3">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="ell_param_s3" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="ell_param_s3">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+    <div class="name">max t</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="ell_param_s4">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="ell_param_s4" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="ell_param_s4">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+
+    <div class="name">min x</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="ell_param_s5">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="ell_param_s5" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="ell_param_s5">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+    <div class="name">min t</div>
+    <div class="input-group">
+
+   <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="ell_param_s6">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+     <input type="text" name="ell_param_s6" class="form-control input-number" value="1" min="1" max="10">
+     <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="ell_param_s6">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+    </div>
+   </div>
+   <a class="waves-effect waves-light btn  light-blue">Решить</a>
+
+  </form>
+ </div>
+</div>
+<div class="center_block main">
+
+<a class="waves-effect waves-light btn btn_top light-blue"><i class="material-icons right">navigation</i>Гиперболическое</a>
+
+<a class="waves-effect waves-light btn btn_left light-blue"><i class="material-icons left">navigation</i>параболическое</i></a>
+<h2>
+Выберите тип уравнения
+</h2>
+
+<a class="waves-effect waves-light btn btn_right light-blue"><i class="material-icons right">navigation</i>Эллиптическое</a>
+</div>
+ </body>
+</html>
