@@ -32,8 +32,9 @@
 
 </text>
 
+
     <script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript">
+<script type="text/javascript">//data.teams[i].tag_url +
     $(function(){
         $.getJSON('teams.json', function(data) {
             for(var i=0;i<data.teams.length;i++){
@@ -41,9 +42,11 @@
                         + '<div class="c' + data.teams[i].color
                         + '">'
                         + data.teams[i].place + '</div>'
-                        +'<img src="flag.png" alt=""/><a href='
-                        + data.teams[i].tag_url +'>'+ data.teams[i].name
-                        + '</a></td><td width="60">'
+                        +"<img src='flag.png' alt=''>"+
+                        "<a href="+ data.teams[i].tag_url +">"+
+
+                         data.teams[i].name+ '</a>'
+                        + '</td><td width="60">'
                         + data.teams[i].matches + '</td><td class="hide"  width="60">'
                         + data.teams[i].win + '</td><td  class="w hide" width="60">'
                         + data.teams[i].draw + '</td><td class="hide" width="60">'

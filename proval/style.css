@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 body{
     font-family: 'Roboto', sans-serif;
@@ -7,6 +8,11 @@ body{
 }
 .c1{
     background: #7fd498;
+=======
+.c1{
+    background: #7fd498;
+
+>>>>>>> parent of da73470... Revert "ddd"
 }
 .c2{
     background: #cceed6;
@@ -14,12 +20,15 @@ body{
 .c4{
     background: #ff99b1;
 }
+<<<<<<< HEAD
 .c1,.c2,.c4,.c{
     text-align: center!important;
 }
 .com{
     margin-left:80px;
 }
+=======
+>>>>>>> parent of da73470... Revert "ddd"
 td{
     padding:0px;
     text-align: center;
@@ -29,10 +38,15 @@ table{
     width:100%;
     border: 1px solid #d8d8d8;
     border-collapse: collapse;
+<<<<<<< HEAD
     margin-bottom: 20px;
 }
 .zag{
     font-weight: 700;
+=======
+}
+.zag{
+>>>>>>> parent of da73470... Revert "ddd"
     color: #006496;
 }
 .c1,.c2,.c4,.c{
@@ -44,9 +58,13 @@ table{
     padding:unset;
     min-width:150px;
     border-right:1px solid #d8d8d8;
+<<<<<<< HEAD
     text-align: left;
 }
 
+=======
+}
+>>>>>>> parent of da73470... Revert "ddd"
 .grey{
     background:#f9f9f7
 }
@@ -55,6 +73,7 @@ td,th{
     line-height:30px;
     border-bottom: 1px solid #d8d8d8;
 }
+<<<<<<< HEAD
 .team img {
     margin-left: 20px;
     margin-right: 10px;
@@ -64,6 +83,8 @@ td,th{
     text-align: left;
     color: #000;
 }
+=======
+>>>>>>> parent of da73470... Revert "ddd"
 @media(max-width: 545px){
 .hide2{
     display: none;

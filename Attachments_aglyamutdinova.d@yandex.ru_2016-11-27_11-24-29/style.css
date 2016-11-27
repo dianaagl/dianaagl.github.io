@@ -1,0 +1,160 @@
+body{
+overflow:hidden;
+}
+.main{
+text-align:center;
+padding:20px;
+width:100%;
+height:100vh;
+position:absolute;
+top:0;
+
+    bottom: 0;
+    margin: auto;
+
+}
+
+.main .btn_left{
+position:absolute;
+left:30px;
+top:0;
+bottom:0;
+    margin: auto;
+}
+.main h2 {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    height: 112px;
+    text-align: center;
+    width: 380px;
+    left: 0;
+    right: 0;
+}
+.main .btn_right{
+position:absolute;
+right:30px;
+top:0;
+bottom:0;
+    margin: auto;
+}
+.main .btn_left i.material-icons.left{
+    transform: rotate(270deg);
+}
+.main .btn_right i.material-icons.right {
+    transform: rotate(90deg);
+}
+
+.main .btn_top i.material-icons.right {
+    transform: rotate(180deg);
+}
+@-webkit-keyframes to_center{
+
+to {transform:translateX(0) translateY(0);}
+}
+@keyframes to_center{
+to {transform:translateX(0) translateY(0);}
+}
+@-webkit-keyframes to_bottom{
+
+to {transform:translateX(0) translateY(100vh);}
+}
+@keyframes to_bottom{
+to {transform:translateX(0) translateY(100vh);}
+}
+
+@keyframes to_left{
+to {transform:translateX(-100%) translateY(0);}
+}
+@-webkit-keyframes to_left{
+
+to {transform:translateX(-100%) translateY(0);}
+}
+@keyframes to_right{
+to {transform:translateX(100%) translateY(0);}
+}
+@-webkit-keyframes to_right{
+
+to {transform:translateX(100%) translateY(0);}
+}
+@keyframes to_top{
+to {transform:translateX(0%) translateY(-100vh);}
+}
+@-webkit-keyframes to_top{
+
+to {transform:translateX(100%) translateY(0);}
+}
+.top_block{
+animation:to_top 1s forwards ;
+webkit-animation:to_top 1s forwards ;
+}
+.bottom_block{
+
+	animation:to_bottom 1s forwards ;
+webkit-animation:to_bottom 1s forwards ;
+}
+.left_block{
+animation:to_left 1s forwards ;
+webkit-animation:to_left 1s forwards ;
+}
+.right_block{
+	animation:to_right 1s forwards ;
+webkit-animation:to_right 1s forwards ;
+}
+.center_block{
+	animation:to_center 1s forwards ;
+webkit-animation:to_center 1s forwards ;
+}
+.giperb{
+width:100%;
+height:100vh;
+background:#110495;
+transform:translateY(-100vh);
+}
+.parab{
+width:100%;
+height:100vh;
+background:#220798;
+transform:translateX(-100%);
+position:absolute;
+top:0;
+}
+.ellipt{
+position:absolute;
+top:0;
+width:100%;
+height:100vh;
+background:#170775;
+transform:translateX(100%);
+}
+.menu_item{
+float:left;
+width:25%;
+height:100%;
+line-height:50px;
+text-align:center;
+text-transform:uppercase;
+}
+.menu{
+position:fixed;
+width:100%;
+height:50px;
+box-shadow: 0px 0px 9px 1px;
+z-index:100;
+background:#fff;
+
+}
+.btn_top{
+    margin-top: calc(100vh - 76px);
+
+
+}
+.logo{
+height:50px;
+}
+.center_but{
+position:absolute;
+bottom:0;
+text-align:center;
+}
